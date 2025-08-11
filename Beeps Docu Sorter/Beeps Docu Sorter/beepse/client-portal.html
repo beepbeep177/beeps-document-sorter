@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Portal - Document Upload 💖</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="client-portal.css">
+</head>
+<body>
+    <div class="portal-header">
+        <div class="header-content">
+            <h1>👤 Client Portal</h1>
+            <div class="user-info">
+                <span id="welcomeText">Welcome, Client!</span>
+                <button class="logout-btn" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="upload-section">
+            <div class="section-header">
+                <h2>📤 Upload Documents</h2>
+                <p>Drag and drop your documents here for processing</p>
+            </div>
+            
+            <div class="drop-zone" id="dropZone">
+                <div class="drop-content">
+                    <div class="upload-icon">📄</div>
+                    <h3>Drag & Drop Documents Here</h3>
+                    <p>Or click to browse files</p>
+                    <input type="file" id="fileInput" multiple accept=".pdf,.jpg,.jpeg,.png,.tiff">
+                    <button class="browse-btn" onclick="document.getElementById('fileInput').click()">
+                        Browse Files 💖
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="processing-section" id="processingSection" style="display: none;">
+            <div class="processing-card">
+                <div class="spinner"></div>
+                <h3>Processing Your Documents... ✨</h3>
+                <p id="processingStatus">Analyzing document types...</p>
+            </div>
+        </div>
+
+        <div class="my-documents-section">
+            <div class="section-header">
+                <h2>📁 My Documents</h2>
+                <div class="document-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" id="totalUploaded">0</span>
+                        <span class="stat-label">Uploaded</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="processed">0</span>
+                        <span class="stat-label">Processed</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="pending">0</span>
+                        <span class="stat-label">Pending</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="documents-grid" id="documentsGrid">
+                <!-- Client's documents will be populated here -->
+            </div>
+        </div>
+
+        <div class="notifications-section" id="notificationsSection">
+            <div class="section-header">
+                <h2>🔔 Notifications</h2>
+            </div>
+            <div class="notifications-list" id="notificationsList">
+                <!-- Notifications will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="client-portal.js"></script>
+</body>
+</html>

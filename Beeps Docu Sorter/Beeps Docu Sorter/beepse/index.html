@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Portal - Login 💖</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="logo">
+                <h1>✨ Document Portal</h1>
+                <p>Secure document processing system</p>
+            </div>
+            
+            <div class="login-form">
+                <div class="role-selector">
+                    <button class="role-btn active" data-role="client">👤 Client Login</button>
+                    <button class="role-btn" data-role="admin">🔧 Admin Login</button>
+                </div>
+                
+                <form id="authForm">
+                    <div class="input-group" id="nameGroup" style="display: none;">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" required>
+                    </div>
+                    
+                    <div class="input-group" id="confirmPasswordGroup" style="display: none;">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" id="confirmPassword">
+                    </div>
+                    
+                    <button type="submit" class="login-btn">
+                        <span id="authText">Login as Client</span>
+                        <div class="spinner" style="display: none;"></div>
+                    </button>
+                </form>
+                
+                <div class="auth-options">
+                    <div class="auth-toggle">
+                        <button class="auth-btn active" data-mode="login">Login</button>
+                        <button class="auth-btn" data-mode="signup">Create Account</button>
+                    </div>
+                </div>
+                
+                <div class="demo-accounts">
+                    <h4>Demo Accounts:</h4>
+                    <div class="demo-btn" data-email="client@demo.com" data-password="demo123" data-role="client">
+                        👤 Client Demo
+                    </div>
+                    <div class="demo-btn" data-email="admin@demo.com" data-password="admin123" data-role="admin">
+                        🔧 Admin Demo
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="login.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Quality Team - AI Processor 💖</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>✨ Document AI Processor</h1>
+            <p>Drop your documents and watch the magic happen! 🪄</p>
+        </header>
+
+        <div class="upload-section">
+            <div class="drop-zone" id="dropZone">
+                <div class="drop-content">
+                    <div class="upload-icon">📄</div>
+                    <h3>Drag & Drop Documents Here</h3>
+                    <p>Or click to browse files</p>
+                    <input type="file" id="fileInput" multiple accept=".pdf,.jpg,.jpeg,.png,.tiff">
+                    <button class="browse-btn" onclick="document.getElementById('fileInput').click()">
+                        Browse Files 💖
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="processing-section" id="processingSection" style="display: none;">
+            <div class="processing-card">
+                <div class="spinner"></div>
+                <h3>Processing Documents... ✨</h3>
+                <p id="processingStatus">Analyzing document types...</p>
+            </div>
+        </div>
+
+        <div class="results-section" id="resultsSection" style="display: none;">
+            <h2>📊 Processing Results</h2>
+            <div class="results-grid" id="resultsGrid">
+                <!-- Results will be populated here -->
+            </div>
+        </div>
+
+        <div class="view-section">
+            <div class="view-header">
+                <h2>📁 Document Library</h2>
+                <button class="view-btn" id="viewDocsBtn">View All Documents 👀</button>
+            </div>
+            
+            <div class="document-browser" id="documentBrowser" style="display: none;">
+                <div class="folder-tabs">
+                    <button class="tab-btn active" data-folder="all">All Documents</button>
+                    <button class="tab-btn" data-folder="rdl">RDL Files</button>
+                    <button class="tab-btn" data-folder="rcs">RCS Files</button>
+                    <button class="tab-btn" data-folder="review">Need Review</button>
+                </div>
+                
+                <div class="document-grid" id="documentGrid">
+                    <!-- Documents will be populated here -->
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-section">
+            <div class="stat-card">
+                <div class="stat-number" id="totalProcessed">0</div>
+                <div class="stat-label">Documents Processed</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="rdlCount">0</div>
+                <div class="stat-label">RDL Documents</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="rcsCount">0</div>
+                <div class="stat-label">RCS Documents</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="reviewCount">0</div>
+                <div class="stat-label">Need Review</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
