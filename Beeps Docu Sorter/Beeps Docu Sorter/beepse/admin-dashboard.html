@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Document Quality Team 💖</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin-dashboard.css">
+</head>
+<body>
+    <div class="admin-header">
+        <div class="header-content">
+            <h1>🔧 Admin Dashboard</h1>
+            <div class="admin-controls">
+                <button class="control-btn" id="refreshBtn">🔄 Refresh</button>
+                <button class="control-btn" id="emailBtn" title="Click to send email, Double-click to test connection">📧 Send Email</button>
+                <div class="user-info">
+                    <span id="adminWelcome">Welcome, Admin!</span>
+                    <button class="logout-btn" onclick="logout()">Logout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Stats Overview -->
+        <div class="stats-overview">
+            <div class="stat-card">
+                <div class="stat-icon">📊</div>
+                <div class="stat-content">
+                    <div class="stat-number" id="totalDocuments">0</div>
+                    <div class="stat-label">Total Documents</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">✅</div>
+                <div class="stat-content">
+                    <div class="stat-number" id="processedDocs">0</div>
+                    <div class="stat-label">Processed</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">⚠️</div>
+                <div class="stat-content">
+                    <div class="stat-number" id="reviewDocs">0</div>
+                    <div class="stat-label">Need Review</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">👥</div>
+                <div class="stat-content">
+                    <div class="stat-number" id="activeClients">0</div>
+                    <div class="stat-label">Active Clients</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Processing Queue -->
+        <div class="processing-queue-section">
+            <div class="section-header">
+                <h2>🔄 Processing Queue</h2>
+                <div class="queue-controls">
+                    <button class="queue-btn" data-filter="all">All</button>
+                    <button class="queue-btn active" data-filter="review">Need Review</button>
+                    <button class="queue-btn" data-filter="password">Password Protected</button>
+                    <button class="queue-btn" data-filter="error">Errors</button>
+                </div>
+            </div>
+            
+            <div class="queue-grid" id="queueGrid">
+                <!-- Processing queue items will be populated here -->
+            </div>
+        </div>
+
+        <!-- Client Management -->
+        <div class="client-management-section">
+            <div class="section-header">
+                <h2>👥 Client Management</h2>
+                <button class="add-client-btn" onclick="showAddClientModal()">+ Add Client</button>
+            </div>
+            
+            <div class="clients-table" id="clientsTable">
+                <!-- Client table will be populated here -->
+            </div>
+        </div>
+
+        <!-- Document Browser (Enhanced from original) -->
+        <div class="document-browser-section">
+            <div class="section-header">
+                <h2>📁 Document Library</h2>
+                <div class="browser-controls">
+                    <button class="tab-btn active" data-folder="all">All Documents</button>
+                    <button class="tab-btn" data-folder="rdl">RDL Files</button>
+                    <button class="tab-btn" data-folder="rcs">RCS Files</button>
+                    <button class="tab-btn" data-folder="review">Need Review</button>
+                </div>
+            </div>
+            
+            <div class="document-grid" id="documentGrid">
+                <!-- Documents will be populated here -->
+            </div>
+        </div>
+
+        <!-- Email Notifications Panel -->
+        <div class="email-panel" id="emailPanel" style="display: none;">
+            <div class="email-content">
+                <div class="email-header">
+                    <h3>📧 Send Email Notification</h3>
+                    <div class="email-status">
+                        <small>Make sure API server is running on port 5000</small>
+                    </div>
+                    <button class="close-btn" onclick="closeEmailPanel()">&times;</button>
+                </div>
+                
+                <form id="emailForm">
+                    <div class="form-group">
+                        <label for="recipientEmail">To:</label>
+                        <input type="email" id="recipientEmail" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="emailSubject">Subject:</label>
+                        <input type="text" id="emailSubject" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="emailMessage">Message:</label>
+                        <textarea id="emailMessage" rows="6" required></textarea>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" onclick="closeEmailPanel()">Cancel</button>
+                        <button type="submit">Send Email 💖</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin-dashboard.js"></script>
+</body>
+</html>
